@@ -1,10 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://c55sm3llfdvqj"]
+[gd_scene load_steps=11 format=3 uid="uid://c55sm3llfdvqj"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_payd6"]
 [ext_resource type="Texture2D" uid="uid://d2pm12y1ec2mn" path="res://assets/Castom/Button/pixil-frame-0 (1).png" id="2_62snu"]
+[ext_resource type="Texture2D" uid="uid://cahxo2j7trydc" path="res://assets/Castom/Button/pixil-frame-0 (2).png" id="3_ych0j"]
+[ext_resource type="Texture2D" uid="uid://bnq24iadu0okw" path="res://assets/Castom/Button/pixil-frame-0 (3).png" id="4_ikp6f"]
+[ext_resource type="PackedScene" uid="uid://c5wnp2t4qqsfx" path="res://foresryellowpar.tscn" id="5_y7pkk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a66t5"]
 texture = ExtResource("2_62snu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dsuj4"]
+texture = ExtResource("3_ych0j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xd055"]
+texture = ExtResource("4_ikp6f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rhofw"]
+texture = ExtResource("3_ych0j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gojrg"]
+texture = ExtResource("4_ikp6f")
 
 [node name="menu" type="Node2D"]
 script = ExtResource("1_payd6")
@@ -20,6 +35,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.273873, 0.273873, 0.273873, 1)
 theme_override_font_sizes/font_size = 75
 theme_override_styles/normal = SubResource("StyleBoxTexture_a66t5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dsuj4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xd055")
 text = "PLAY"
 
 [node name="quit" type="Button" parent="VBoxContainer"]
@@ -27,7 +44,11 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.273873, 0.273873, 0.273873, 1)
 theme_override_font_sizes/font_size = 75
 theme_override_styles/normal = SubResource("StyleBoxTexture_a66t5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rhofw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gojrg")
 text = "EXIT"
+
+[node name="Node2D" parent="." instance=ExtResource("5_y7pkk")]
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
